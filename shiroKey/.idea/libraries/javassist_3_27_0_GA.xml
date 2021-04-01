@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="javassist-3.27.0-GA">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/artifacts/shiroKey_jar/javassist-3.27.0-GA.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

