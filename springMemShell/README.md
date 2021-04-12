@@ -1,5 +1,7 @@
 # SpringMemShell
 
+由于本人是条懒狗，具体的使用说明请以`/?password=stdout&model=help`为准。（主要是我改了代码之后不想动前面的markdown。。。）
+
 
 
 ## 原理
