@@ -122,3 +122,21 @@ alert(1);
 
 <font color='red'>这期间不会影响到业务。</font>
 
+
+
+## 新功能+3
+
+增加了regeorg 代理，由于最新的regeorg使用了变形base64加密，所有的字段名和值都发生了变化，导致换密码很麻烦——需要把tunnel.jsp的代码分别复制到B64类和SpringProxy类中，相信聪明的你一定会改。
+
+我的密码是stdout。
+
+之后可能会去研究一下变种的过程，搞一个自动一点的出来。
+
+使用`python3 neoreg.py --url "http://target/?password=stdout&model=proxy" -k "stdout"`即可。
+
+效果示例：
+
+![image-20210412134149838](https://gitee.com/ethustdout/pics/raw/master/uPic/image-20210412134149838.png)
+
+![image-20210412141215288](https://gitee.com/ethustdout/pics/raw/master/uPic/image-20210412141215288.png)
+
