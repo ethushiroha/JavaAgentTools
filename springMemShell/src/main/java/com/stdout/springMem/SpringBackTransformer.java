@@ -1,5 +1,7 @@
 package com.stdout.springMem;
 
+import com.stdout.Utils.MyReader;
+
 import java.lang.instrument.ClassFileTransformer;
 import java.lang.instrument.IllegalClassFormatException;
 import java.lang.reflect.Constructor;
@@ -47,7 +49,7 @@ public class SpringBackTransformer implements ClassFileTransformer {
                     Class<?> ctb = classLoader.loadClass("javassist.CtBehavior");
                     Method insertBefore = ctb.getDeclaredMethod("setBody", new Class[]{String.class});
 
-                    String source = SpringMemModels.readSource("ends.txt");
+                    String source = MyReader.readSource("ends.txt");
                     insertBefore.invoke(m, new Object[] {source});
                     Method toByteCode = ctc.getDeclaredMethod("toBytecode", null);
                     byte[] byteCode = (byte[]) toByteCode.invoke(cc, null);

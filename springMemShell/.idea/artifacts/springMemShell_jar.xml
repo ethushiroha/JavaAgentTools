@@ -3,16 +3,6 @@
     <output-path>$PROJECT_DIR$/out/artifacts/springMemShell_jar</output-path>
     <root id="archive" name="springMemShell.jar">
       <element id="module-output" name="springMemShell" />
-      <element id="library" level="project" name="Maven: javax:javaee-web-api:8.0.1" />
-      <element id="library" level="project" name="Maven: org.javassist:javassist:3.20.0-GA" />
-      <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.3.2" />
-      <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.3.2" />
-      <element id="library" level="project" name="Maven: org.springframework:spring-context:5.3.2" />
-      <element id="library" level="project" name="Maven: org.springframework:spring-core:5.3.2" />
-      <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.3.2" />
-      <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.3.2" />
-      <element id="library" level="project" name="Maven: org.springframework:spring-web:5.3.2" />
-      <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.3.2" />
     </root>
   </artifact>
 </component>
