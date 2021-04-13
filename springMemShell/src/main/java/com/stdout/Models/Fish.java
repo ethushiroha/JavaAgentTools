@@ -1,6 +1,6 @@
 package com.stdout.Models;
 
-import com.stdout.Utils.MyReader;
+import com.stdout.Utils.Redefine.MyReader;
 
 public class Fish {
     public static boolean isWantFish = false;

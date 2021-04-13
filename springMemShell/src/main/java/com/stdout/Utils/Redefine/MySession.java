@@ -1,4 +1,4 @@
-package com.stdout.Utils;
+package com.stdout.Utils.Redefine;
 
 public class MySession {
     public static void setAttribute(Object httpSession, String arg1, Object arg2) throws Exception {
@@ -15,5 +15,9 @@ public class MySession {
 
     public static void removeAttribute(Object session, String arg1) throws Exception {
         session.getClass().getDeclaredMethod("removeAttribute", String.class).invoke(session, arg1);
+    }
+
+    public static void putValue(Object session, String arg1, String arg2) throws Exception {
+        session.getClass().getDeclaredMethod("putValue", String.class, String.class).invoke(session, arg1, arg2);
     }
 }

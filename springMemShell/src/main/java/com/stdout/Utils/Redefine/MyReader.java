@@ -1,4 +1,4 @@
-package com.stdout.Utils;
+package com.stdout.Utils.Redefine;
 
 import com.stdout.springMem.SpringMemTransformer;
 
@@ -6,9 +6,10 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.ByteBuffer;
 
 public class MyReader {
-    // utils
+    // this is for utils
     public static String readFileContent(String file) throws Exception {
         String result = "";
         StringBuffer source = new StringBuffer();
@@ -46,5 +47,10 @@ public class MyReader {
         result = source.toString();
 
         return result;
+    }
+
+    // this is the true function
+    public static String readline(Object reader) throws Exception {
+        return (String) reader.getClass().getDeclaredMethod("readline", null).invoke(reader, new Object[] {});
     }
 }

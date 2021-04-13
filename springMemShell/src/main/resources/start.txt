@@ -4,10 +4,10 @@
 	request.setCharacterEncoding("UTF-8");
 
     String result = com.stdout.Utils.PreDoFilter.PreDeal(request, response);
+    if (result == null) {
+        return;
+    }
     if (!result.equals("")) {
-        if (result.equals("No printer\n\n\n")) {
-            return;
-        }
         response.getWriter().write(result);
         return;
     }
