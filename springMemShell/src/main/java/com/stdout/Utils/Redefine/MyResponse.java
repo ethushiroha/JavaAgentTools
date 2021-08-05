@@ -15,10 +15,6 @@ public class MyResponse {
         return (PrintWriter) response.getClass().getDeclaredMethod("getWriter", null).invoke(response, new Object[] {});
     }
 
-    public static void reset(Object response) throws Exception {
-        response.getClass().getDeclaredMethod("reset", null).invoke(response, new Object[] {});
-    }
-
     public static Object getOutputStream(Object response) throws Exception {
         return response.getClass().getDeclaredMethod("getOutputStream", null).invoke(response, new Object[] {});
     }

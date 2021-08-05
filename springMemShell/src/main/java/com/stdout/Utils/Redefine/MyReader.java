@@ -1,12 +1,11 @@
 package com.stdout.Utils.Redefine;
 
-import com.stdout.springMem.SpringMemTransformer;
+import com.stdout.Transformers.SpringMemTransformer;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.nio.ByteBuffer;
 
 public class MyReader {
     // this is for utils

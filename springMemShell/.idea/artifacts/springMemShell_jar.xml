@@ -3,6 +3,8 @@
     <output-path>$PROJECT_DIR$/out/artifacts/springMemShell_jar</output-path>
     <root id="archive" name="springMemShell.jar">
       <element id="module-output" name="springMemShell" />
+      <element id="library" level="project" name="libs" />
+      <element id="jpa-descriptors" facet="springMemShell/jpa/JPA" />
     </root>
   </artifact>
 </component>

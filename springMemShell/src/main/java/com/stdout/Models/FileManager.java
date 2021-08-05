@@ -1,5 +1,6 @@
 package com.stdout.Models;
 
+import com.stdout.Config.DefaultConfig;
 import com.stdout.Utils.Redefine.*;
 
 import java.io.File;
@@ -35,7 +36,7 @@ public class FileManager {
     }
 
     public static String uploadView() throws Exception {
-        String result = MyReader.readSource("upload.html");
+        String result = MyReader.readSource(DefaultConfig.TemplatesConfig.Upload);
 
         return result;
     }

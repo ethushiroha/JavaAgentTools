@@ -9,12 +9,6 @@ public class MyRequest {
         return (String) m.invoke(request, name);
     }
 
-    public static Object getServletContext(Object request) throws Exception {
-        Method m = request.getClass().getDeclaredMethod("getServletContext", null);
-        m.setAccessible(true);
-        return m.invoke(request, new Object[] {});
-    }
-
     public static String getHeader(Object request, String name) throws Exception {
         Method m = request.getClass().getDeclaredMethod("getHeader", String.class);
         m.setAccessible(true);
@@ -43,18 +37,6 @@ public class MyRequest {
         Method m = request.getClass().getDeclaredMethod("getRequestURI", null);
         m.setAccessible(true);
         return (String) m.invoke(request, new Object[] {});
-    }
-
-    public static String getMethod(Object request) throws Exception {
-        Method m = request.getClass().getDeclaredMethod("getMethod", null);
-        m.setAccessible(true);
-        return (String) m.invoke(request, new Object[] {});
-    }
-
-    public static Object getReader(Object request) throws Exception {
-        Method m = request.getClass().getDeclaredMethod("getReader", null);
-        m.setAccessible(true);
-        return m.invoke(request, new Object[] {});
     }
 
 }

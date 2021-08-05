@@ -1,0 +1,1 @@
+{$0.setCipherKey(org.apache.shiro.codec.Base64.decode("4AvVhmFLUs0KTA3Kprsdag=="));}

@@ -142,37 +142,3 @@ alert(1);
 
 ![image-20210412141215288](https://gitee.com/ethustdout/pics/raw/master/uPic/image-20210412141215288.png)
 
-
-
-## 新功能+4
-
-支持文件上传和下载
-
-### 上传
-
-访问`/?password=stdout&model=file`即可看到文件上传
-
-![image-20210413175757797](https://gitee.com/ethustdout/pics/raw/master/uPic/image-20210413175757797.png)
-
-例如：
-
--   path： `/tmp/1.js`
--   file: `Mgo=`
--   mode: `overwrite`
-
-会把`Mgo=`进行base64解密之后写入`/tmp/1.js`中。
-
-由于文件大小限制，大文件（大于1M）切块之后用append模式进行上传。
-
-
-
-### 下载
-
-`/?password=stdout&model=file&action=download&path=[path]`
-
-就会下载path指向的文件
-
-例如：
-
--   path=`/tmp/1.js`
-
