@@ -1,19 +1,11 @@
 {
-    org.eclipse.jetty.server.HttpChannel channel = $1;
-    final String target1 = channel.getRequest().getPathInfo();
-    final org.eclipse.jetty.server.Request request1 = channel.getRequest();
-    final org.eclipse.jetty.server.Response response1 = channel.getResponse();
+    final javax.servlet.http.HttpServletRequest request1 = $3;
+    final javax.servlet.http.HttpServletResponse response1 = $4;
+
     request1.setCharacterEncoding("UTF-8");
 
-    String result = com.stdout.Utils.PreDoFilter.PreDeal(request1, response1);
-    if (result == null) {
-        request1.setHandled(true);
+    boolean result = com.stdout.Utils.PreDoFilter.PreDeal(request1, response1);
+    if (result == true) {
         return;
     }
-    if (!result.equals("")) {
-        response1.getWriter().write(result);
-        request1.setHandled(true);
-        return;
-    }
-
 }

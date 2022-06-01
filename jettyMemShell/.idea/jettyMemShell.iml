@@ -42,6 +42,11 @@
     <orderEntry type="library" name="Maven: org.codehaus.plexus:plexus-compiler-api:2.8.4" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.plexus:plexus-compiler-manager:2.8.4" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.codehaus.plexus:plexus-compiler-javac:2.8.4" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-server:9.4.45.v20220203" level="project" />
+    <orderEntry type="library" name="Maven: javax.servlet:javax.servlet-api:3.1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-http:9.4.45.v20220203" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-util:9.4.45.v20220203" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-io:9.4.45.v20220203" level="project" />
     <orderEntry type="module-library">
       <library name="Maven: com.sun:tools:1.8.0">
         <CLASSES>

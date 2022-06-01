@@ -1,29 +1,15 @@
 {
-    org.eclipse.jetty.server.HttpChannel channel = $1;
-    final String target = channel.getRequest().getPathInfo();
-    final org.eclipse.jetty.server.Request request = channel.getRequest();
-    final org.eclipse.jetty.server.Response response = channel.getResponse();
+    final javax.servlet.http.HttpServletRequest req = $3;
+    final javax.servlet.http.HttpServletResponse res = $4;
+    req.setCharacterEncoding("UTF-8");
 
-    if (LOG.isDebugEnabled())
-        LOG.debug("{} {} {} on {}", request.getDispatcherType(), request.getMethod(), target, channel);
-
-    if (HttpMethod.OPTIONS.is(request.getMethod()) || "*".equals(target))
-    {
-        if (!HttpMethod.OPTIONS.is(request.getMethod()))
-        {
-            request.setHandled(true);
-            response.sendError(HttpStatus.BAD_REQUEST_400);
-        }
-        else
-        {
-            handleOptions(request, response);
-            if (!request.isHandled())
-                handle(target, request, request, response);
-        }
+    boolean result = com.stdout.Utils.PreDoFilter.Restart(req, res);
+    if (result == true) {
+        return;
     }
-    else
-        handle(target, request, request, response);
 
-    if (LOG.isDebugEnabled())
-        LOG.debug("handled={} async={} committed={} on {}", request.isHandled(), request.isAsyncStarted(), response.isCommitted(), channel);
+    if ($0._nextScope != null && $0._nextScope == _handler)
+        $0._nextScope.doHandle($1, $2, $3, $4);
+    else if ($0._handler != null)
+        super.handle($1, $2, $3, $4);
 }

