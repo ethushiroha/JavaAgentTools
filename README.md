@@ -10,6 +10,9 @@
 
 
 
+## 2022/11/15
+更新了 agent，发现一种特殊情况————使用 systemctl 启动 jar，会导致attach的时候报 `AttachNotSupportedException: Unable to open socket file` 异常。在研究之后解决问题，更新代码。
+
 ## 2021.8.31
 
 更新了各个项目中的 Readme

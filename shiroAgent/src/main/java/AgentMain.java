@@ -1,22 +1,33 @@
-import com.sun.tools.attach.AgentInitializationException;
-import com.sun.tools.attach.AgentLoadException;
 import com.sun.tools.attach.AttachNotSupportedException;
 import com.sun.tools.attach.VirtualMachine;
+import com.sun.tools.attach.spi.AttachProvider;
+import sun.tools.attach.MyLVM;
 
-import java.io.IOException;
+import java.util.List;
 
 public class AgentMain {
-    public static void main(String[] args) throws IOException, AttachNotSupportedException, AgentLoadException, AgentInitializationException {
+    public static void main(String[] args) throws Exception {
         String id = args[0];
         String jarName = args[1];
+
 
         System.out.println("id ==> " + id);
         System.out.println("jarName ==> " + jarName);
 
-        VirtualMachine virtualMachine = VirtualMachine.attach(id);
-        virtualMachine.loadAgent(jarName);
-        virtualMachine.detach();
+        List<AttachProvider> providers = AttachProvider.providers();
+        for (AttachProvider provider: providers) {
+            try {
+                System.out.println(provider.name());
+                VirtualMachine virtualMachine = MyLVM.NewMyLVM(provider, id);
+                System.out.println("attach!");
+                virtualMachine.loadAgent(jarName);
+                virtualMachine.detach();
 
-        System.out.println("ends");
+                System.out.println("ends");
+                return ;
+            } catch (AttachNotSupportedException x) {
+                x.printStackTrace();
+            }
+        }
     }
 }
