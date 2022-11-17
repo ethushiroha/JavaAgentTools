@@ -36,8 +36,8 @@ import java.io.ObjectOutputStream;
  * <ul><pre>ClassMetaobject cm = ((Metalevel)reflectiveObject)._getClass();
  * </pre></ul>
  *
- * @see javassist.tools.reflect.Metaobject
- * @see javassist.tools.reflect.Metalevel
+ * @see Metaobject
+ * @see Metalevel
  */
 public class ClassMetaobject implements Serializable {
     /**
@@ -210,9 +210,9 @@ public class ClassMetaobject implements Serializable {
             if (allmethods[i].getName().startsWith(head)) {
                 try {
                     return allmethods[i].invoke(target, args);
-                } catch (java.lang.reflect.InvocationTargetException e) {
+                } catch (InvocationTargetException e) {
                     throw e.getTargetException();
-                } catch (java.lang.IllegalAccessException e) {
+                } catch (IllegalAccessException e) {
                     throw new CannotInvokeException(e);
                 }
             }
@@ -235,10 +235,10 @@ public class ClassMetaobject implements Serializable {
             Method[] m = getReflectiveMethods();
             return m[identifier].invoke(null, args);
         }
-        catch (java.lang.reflect.InvocationTargetException e) {
+        catch (InvocationTargetException e) {
             throw e.getTargetException();
         }
-        catch (java.lang.IllegalAccessException e) {
+        catch (IllegalAccessException e) {
             throw new CannotInvokeException(e);
         }
     }

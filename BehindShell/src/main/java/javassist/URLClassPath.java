@@ -22,7 +22,7 @@ import java.net.*;
 /**
  * A class search-path specified with URL (http).
  *
- * @see javassist.ClassPath
+ * @see ClassPath
  * @see ClassPool#insertClassPath(ClassPath)
  * @see ClassPool#appendClassPath(ClassPath)
  */

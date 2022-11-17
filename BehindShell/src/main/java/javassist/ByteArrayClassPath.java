@@ -41,7 +41,7 @@ import java.net.MalformedURLException;
  * <p>A <code>ByteArrayClassPath</code> must be instantiated for every
  * class.  It contains only a single class file.
  *
- * @see javassist.ClassPath
+ * @see ClassPath
  * @see ClassPool#insertClassPath(ClassPath)
  * @see ClassPool#appendClassPath(ClassPath)
  * @see ClassPool#makeClass(InputStream)

@@ -66,7 +66,7 @@ public class StubGenerator implements Translator {
      * Initializes the object.
      * This is a method declared in javassist.Translator.
      *
-     * @see javassist.Translator#start(ClassPool)
+     * @see Translator#start(ClassPool)
      */
     public void start(ClassPool pool) throws NotFoundException {
         classPool = pool;
@@ -87,7 +87,7 @@ public class StubGenerator implements Translator {
     /**
      * Does nothing.
      * This is a method declared in javassist.Translator.
-     * @see javassist.Translator#onLoad(ClassPool,String)
+     * @see Translator#onLoad(ClassPool,String)
      */
     public void onLoad(ClassPool pool, String classname) {}
 

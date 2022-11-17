@@ -19,7 +19,7 @@ package javassist.tools.rmi;
 /**
  * An interface implemented by proxy classes.
  *
- * @see javassist.tools.rmi.StubGenerator
+ * @see StubGenerator
  */
 public interface Proxy {
     int _getObjectId();

@@ -59,10 +59,10 @@ import javassist.bytecode.MethodInfo;
  * }
  * </pre></ul>
  *
- * @see javassist.tools.reflect.ClassMetaobject
- * @see javassist.tools.reflect.Metaobject
- * @see javassist.tools.reflect.Loader
- * @see javassist.tools.reflect.Compiler
+ * @see ClassMetaobject
+ * @see Metaobject
+ * @see Loader
+ * @see Compiler
  */
 public class Reflection implements Translator {
 
@@ -147,8 +147,8 @@ public class Reflection implements Translator {
      * @param metaclass         the class name of the class metaobject.
      * @return <code>false</code>       if the class is already reflective.
      *
-     * @see javassist.tools.reflect.Metaobject
-     * @see javassist.tools.reflect.ClassMetaobject
+     * @see Metaobject
+     * @see ClassMetaobject
      */
     public boolean makeReflective(String classname,
                                   String metaobject, String metaclass)
@@ -173,8 +173,8 @@ public class Reflection implements Translator {
      *                          <code>ClassMetaobject</code>.
      * @return <code>false</code>       if the class is already reflective.
      *
-     * @see javassist.tools.reflect.Metaobject
-     * @see javassist.tools.reflect.ClassMetaobject
+     * @see Metaobject
+     * @see ClassMetaobject
      */
     public boolean makeReflective(Class clazz,
                                   Class metaobject, Class metaclass)
@@ -199,8 +199,8 @@ public class Reflection implements Translator {
      *                          <code>ClassMetaobject</code>.
      * @return <code>false</code>       if the class is already reflective.
      *
-     * @see javassist.tools.reflect.Metaobject
-     * @see javassist.tools.reflect.ClassMetaobject
+     * @see Metaobject
+     * @see ClassMetaobject
      */
     public boolean makeReflective(CtClass clazz,
                                   CtClass metaobject, CtClass metaclass)

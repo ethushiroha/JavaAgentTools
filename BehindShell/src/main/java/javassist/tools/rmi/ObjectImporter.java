@@ -68,11 +68,11 @@ import java.lang.reflect.*;
  * to catch the exception.  However, good programs should catch
  * the <code>RuntimeException</code>.
  *
- * @see javassist.tools.rmi.AppletServer
- * @see javassist.tools.rmi.RemoteException
+ * @see AppletServer
+ * @see RemoteException
  * @see javassist.tools.web.Viewer
  */
-public class ObjectImporter implements java.io.Serializable {
+public class ObjectImporter implements Serializable {
     private final byte[] endofline = { 0x0d, 0x0a };
     private String servername, orgServername;
     private int port, orgPort;

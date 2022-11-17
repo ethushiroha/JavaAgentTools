@@ -99,7 +99,7 @@ import javassist.bytecode.annotation.*;
  * Javassist or JDK 1.4.  Otherwise, it is not necessary.
  *
  * @see AnnotationDefaultAttribute
- * @see javassist.bytecode.annotation.Annotation
+ * @see Annotation
  */
 public class AnnotationsAttribute extends AttributeInfo {
     /**

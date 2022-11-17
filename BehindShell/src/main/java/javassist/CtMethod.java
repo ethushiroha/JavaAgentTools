@@ -265,7 +265,7 @@ public final class CtMethod extends CtBehavior {
      *                          the wrapped method
      *                          (maybe <code>null</code>).
      *
-     * @see CtNewMethod#wrapped(CtClass,String,CtClass[],CtClass[],CtMethod,CtMethod.ConstParameter,CtClass)
+     * @see CtNewMethod#wrapped(CtClass,String,CtClass[],CtClass[],CtMethod, ConstParameter,CtClass)
      */
     public void setWrappedBody(CtMethod mbody, ConstParameter constParam)
         throws CannotCompileException
@@ -302,9 +302,9 @@ public final class CtMethod extends CtBehavior {
      * They are used to specify the parameter given to the methods
      * created by <code>CtNewMethod.wrapped()</code>.
      *
-     * @see CtMethod#setWrappedBody(CtMethod,CtMethod.ConstParameter)
-     * @see CtNewMethod#wrapped(CtClass,String,CtClass[],CtClass[],CtMethod,CtMethod.ConstParameter,CtClass)
-     * @see CtNewConstructor#make(CtClass[],CtClass[],int,CtMethod,CtMethod.ConstParameter,CtClass)
+     * @see CtMethod#setWrappedBody(CtMethod, ConstParameter)
+     * @see CtNewMethod#wrapped(CtClass,String,CtClass[],CtClass[],CtMethod, ConstParameter,CtClass)
+     * @see CtNewConstructor#make(CtClass[],CtClass[],int,CtMethod, ConstParameter,CtClass)
      */
     public static class ConstParameter {
         /**

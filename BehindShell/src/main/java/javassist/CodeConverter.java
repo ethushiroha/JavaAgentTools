@@ -43,8 +43,8 @@ import javassist.convert.*;
  * for all occurrences of "<code>new Point()</code>"
  * appearing in methods declared in a <code>Client</code> class.
  *
- * @see javassist.CtClass#instrument(CodeConverter)
- * @see javassist.CtMethod#instrument(CodeConverter)
+ * @see CtClass#instrument(CodeConverter)
+ * @see CtMethod#instrument(CodeConverter)
  * @see javassist.expr.ExprEditor
  */
 public class CodeConverter {
@@ -383,7 +383,7 @@ public class CodeConverter {
      *
      * @param oldMethodName        the old name of the method.
      * @param newMethod            the method with the new name.
-     * @see javassist.CtMethod#setName(String)
+     * @see CtMethod#setName(String)
      */
     public void redirectMethodCall(String oldMethodName,
                                    CtMethod newMethod)

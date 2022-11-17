@@ -131,7 +131,7 @@ public class FieldAccess extends Expr {
      * The signature is represented by a character string
      * called field descriptor, which is defined in the JVM specification.
      *
-     * @see javassist.bytecode.Descriptor#toCtClass(String, ClassPool)
+     * @see Descriptor#toCtClass(String, ClassPool)
      * @since 3.1
      */
     public String getSignature() {

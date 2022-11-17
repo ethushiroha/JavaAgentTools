@@ -60,7 +60,7 @@ import java.util.Map;
  * </pre></ul>
  *
  * @see AnnotationsAttribute
- * @see javassist.bytecode.annotation.MemberValue
+ * @see MemberValue
  */
 
 public class AnnotationDefaultAttribute extends AttributeInfo {
@@ -86,7 +86,7 @@ public class AnnotationDefaultAttribute extends AttributeInfo {
      * The default value can be set by <code>setDefaultValue()</code>.
      *
      * @param cp            constant pool
-     * @see #setDefaultValue(javassist.bytecode.annotation.MemberValue)
+     * @see #setDefaultValue(MemberValue)
      */
     public AnnotationDefaultAttribute(ConstPool cp) {
         this(cp, new byte[] { 0, 0 });

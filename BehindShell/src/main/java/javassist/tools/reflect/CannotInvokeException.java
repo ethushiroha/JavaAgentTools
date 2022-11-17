@@ -23,9 +23,9 @@ import java.lang.IllegalAccessException;
  * Thrown when method invocation using the reflection API has thrown
  * an exception.
  *
- * @see javassist.tools.reflect.Metaobject#trapMethodcall(int, Object[])
- * @see javassist.tools.reflect.ClassMetaobject#trapMethodcall(int, Object[])
- * @see javassist.tools.reflect.ClassMetaobject#invoke(Object, int, Object[])
+ * @see Metaobject#trapMethodcall(int, Object[])
+ * @see ClassMetaobject#trapMethodcall(int, Object[])
+ * @see ClassMetaobject#invoke(Object, int, Object[])
  */
 public class CannotInvokeException extends RuntimeException {
 

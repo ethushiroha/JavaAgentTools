@@ -295,7 +295,7 @@ public final class ClassFile {
     /**
      * Returns access flags.
      * 
-     * @see javassist.bytecode.AccessFlag
+     * @see AccessFlag
      */
     public int getAccessFlags() {
         return accessFlags;
@@ -304,7 +304,7 @@ public final class ClassFile {
     /**
      * Changes access flags.
      * 
-     * @see javassist.bytecode.AccessFlag
+     * @see AccessFlag
      */
     public void setAccessFlags(int acc) {
         if ((acc & AccessFlag.INTERFACE) == 0)

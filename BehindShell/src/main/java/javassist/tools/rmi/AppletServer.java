@@ -33,7 +33,7 @@ import java.util.Vector;
  * If the classes of the exported objects are requested by the client-side
  * JVM, this web server sends proxy classes for the requested classes.
  *
- * @see javassist.tools.rmi.ObjectImporter
+ * @see ObjectImporter
  */
 public class AppletServer extends Webserver {
     private StubGenerator stubGen;
@@ -104,7 +104,7 @@ public class AppletServer extends Webserver {
      * @param obj       the exported object.
      * @return          the object identifier
      *
-     * @see javassist.tools.rmi.ObjectImporter#lookupObject(String)
+     * @see ObjectImporter#lookupObject(String)
      */
     public synchronized int exportObject(String name, Object obj)
         throws CannotCompileException

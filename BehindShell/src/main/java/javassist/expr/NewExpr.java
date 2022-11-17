@@ -97,8 +97,8 @@ public class NewExpr extends Expr {
      * The signature is represented by a character string
      * called method descriptor, which is defined in the JVM specification.
      *
-     * @see javassist.CtBehavior#getSignature()
-     * @see javassist.bytecode.Descriptor
+     * @see CtBehavior#getSignature()
+     * @see Descriptor
      * @return the signature
      */
     public String getSignature() {

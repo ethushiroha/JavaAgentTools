@@ -25,8 +25,8 @@ import javassist.CannotCompileException;
  * either ClassMetaobject or Metaobject.
  *
  * @author Brett Randall
- * @see javassist.tools.reflect.Reflection#makeReflective(CtClass,CtClass,CtClass)
- * @see javassist.CannotCompileException
+ * @see Reflection#makeReflective(CtClass,CtClass,CtClass)
+ * @see CannotCompileException
  */
 public class CannotReflectException extends CannotCompileException {
     public CannotReflectException(String msg) {

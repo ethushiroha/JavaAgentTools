@@ -130,8 +130,8 @@ import java.security.ProtectionDomain;
  * an exception since it accepts an instance of only the
  * <code>java.lang.String</code> loaded by the parent class loader.
  *
- * @see javassist.ClassPool
- * @see javassist.Translator
+ * @see ClassPool
+ * @see Translator
  */
 public class Loader extends ClassLoader {
     private Hashtable notDefinedHere; // must be atomic.
@@ -251,7 +251,7 @@ public class Loader extends ClassLoader {
      *                      to the target <code>main()</code>.
      * </ul>
      *
-     * @see javassist.Loader#run(String[])
+     * @see Loader#run(String[])
      */
     public static void main(String[] args) throws Throwable {
         Loader cl = new Loader();

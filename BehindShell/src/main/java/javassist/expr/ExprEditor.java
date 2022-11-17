@@ -58,7 +58,7 @@ import javassist.CannotCompileException;
  * body must be modified, call <code>replace()</code>
  * in <code>MethodCall</code>.
  *
- * @see javassist.CtClass#instrument(ExprEditor)
+ * @see CtClass#instrument(ExprEditor)
  * @see javassist.CtMethod#instrument(ExprEditor)
  * @see javassist.CtConstructor#instrument(ExprEditor)
  * @see MethodCall

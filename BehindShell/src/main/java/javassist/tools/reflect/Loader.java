@@ -103,8 +103,8 @@ import javassist.ClassPool;
  * modified with <code>javassist.tools.reflect.Compiler</code> and the original
  * class files should be replaced.
  *
- * @see javassist.tools.reflect.Reflection
- * @see javassist.tools.reflect.Compiler
+ * @see Reflection
+ * @see Compiler
  * @see javassist.Loader
  */
 public class Loader extends javassist.Loader {
@@ -152,8 +152,8 @@ public class Loader extends javassist.Loader {
      *                          <code>ClassMetaobject</code>.
      * @return <code>false</code>       if the class is already reflective.
      *
-     * @see javassist.tools.reflect.Metaobject
-     * @see javassist.tools.reflect.ClassMetaobject
+     * @see Metaobject
+     * @see ClassMetaobject
      */
     public boolean makeReflective(String clazz,
                                   String metaobject, String metaclass)

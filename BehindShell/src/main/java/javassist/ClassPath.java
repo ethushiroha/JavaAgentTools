@@ -46,7 +46,7 @@ public interface ClassPath {
      *
      * @param classname         a fully-qualified class name
      * @return          the input stream for reading a class file
-     * @see javassist.Translator
+     * @see Translator
      */
     InputStream openClassfile(String classname) throws NotFoundException;
 

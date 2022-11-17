@@ -1,13 +1,16 @@
 {
+
+    javax.servlet.http.HttpServletRequest request = $1;
+    javax.servlet.http.HttpServletResponse response = $2;
+
     try {
-        javax.servlet.http.HttpServletRequest request = $1;
-        javax.servlet.http.HttpServletResponse response = $2;
         Object session = request.getSession();
         if (request.getRequestURI().equals("/poi")) {
             org.apache.spring.b.d(request, response, session);
+            return ;
         }
-        return;
     } catch (Exception e) {
 
     }
+
 }

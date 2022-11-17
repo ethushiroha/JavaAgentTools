@@ -40,8 +40,8 @@ import java.io.ObjectOutputStream;
  * <ul><pre>Metaobject m = ((Metalevel)reflectiveObject)._getMetaobject();
  * </pre></ul>
  *
- * @see javassist.tools.reflect.ClassMetaobject
- * @see javassist.tools.reflect.Metalevel
+ * @see ClassMetaobject
+ * @see Metalevel
  */
 public class Metaobject implements Serializable {
     protected ClassMetaobject classmetaobject;
@@ -89,7 +89,7 @@ public class Metaobject implements Serializable {
     /**
      * Obtains the class metaobject associated with this metaobject.
      *
-     * @see javassist.tools.reflect.ClassMetaobject
+     * @see ClassMetaobject
      */
     public final ClassMetaobject getClassMetaobject() {
         return classmetaobject;
@@ -230,7 +230,7 @@ public class Metaobject implements Serializable {
         catch (java.lang.reflect.InvocationTargetException e) {
             throw e.getTargetException();
         }
-        catch (java.lang.IllegalAccessException e) {
+        catch (IllegalAccessException e) {
             throw new CannotInvokeException(e);
         }
     }

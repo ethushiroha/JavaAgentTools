@@ -303,7 +303,7 @@ public class CtNewConstructor {
      * @param declaring         the class to which the created constructor
      *                          is added.
      *
-     * @see CtNewMethod#wrapped(CtClass,String,CtClass[],CtClass[],CtMethod,CtMethod.ConstParameter,CtClass)
+     * @see CtNewMethod#wrapped(CtClass,String,CtClass[],CtClass[],CtMethod, ConstParameter,CtClass)
      */
     public static CtConstructor make(CtClass[] parameters,
                                      CtClass[] exceptions, int howto,

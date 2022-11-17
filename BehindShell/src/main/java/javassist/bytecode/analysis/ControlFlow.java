@@ -36,7 +36,7 @@ import javassist.bytecode.stackmap.BasicBlock;
  * <p><code>blocks</code> is an array of basic blocks in
  * that method body.</p>
  *
- * @see javassist.CtMethod
+ * @see CtMethod
  * @see Block
  * @see Frame
  * @see Analyzer
@@ -87,7 +87,7 @@ public class ControlFlow {
                 e.entrances[counters[e.index]++] = b;
             }
 
-            ControlFlow.Catcher[] catchers = b.catchers();
+            Catcher[] catchers = b.catchers();
             for (int k = 0; k < catchers.length; k++) {
                 Block catchBlock = catchers[k].node;
                 catchBlock.entrances[counters[catchBlock.index]++] = b;
@@ -310,7 +310,7 @@ public class ControlFlow {
          */
         public Catcher[] catchers() {
             ArrayList catchers = new ArrayList();
-            BasicBlock.Catch c = toCatch;
+            Catch c = toCatch;
             while (c != null) {
                 catchers.add(new Catcher(c));
                 c = c.next;

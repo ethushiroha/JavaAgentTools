@@ -64,9 +64,9 @@ class CompiledClass {
  * <p>Note that if the super class is also made reflective, it must be done
  * before the sub class.
  *
- * @see javassist.tools.reflect.Metaobject
- * @see javassist.tools.reflect.ClassMetaobject
- * @see javassist.tools.reflect.Reflection
+ * @see Metaobject
+ * @see ClassMetaobject
+ * @see Reflection
  */
 public class Compiler {
 

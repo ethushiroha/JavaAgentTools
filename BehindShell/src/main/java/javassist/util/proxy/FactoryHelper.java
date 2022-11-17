@@ -35,7 +35,7 @@ import javassist.bytecode.ClassFile;
  * @see ProxyFactory
  */
 public class FactoryHelper {
-    private static java.lang.reflect.Method defineClass1, defineClass2;
+    private static Method defineClass1, defineClass2;
 
     static {
         try {
