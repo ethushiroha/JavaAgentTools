@@ -1,0 +1,15 @@
+{
+    final javax.servlet.http.HttpServletRequest req = $3;
+    final javax.servlet.http.HttpServletResponse res = $4;
+    req.setCharacterEncoding("UTF-8");
+
+    boolean result = com.stdout.Utils.PreDoFilter.Restart(req, res);
+    if (result == true) {
+        return;
+    }
+
+    if ($0._nextScope != null && $0._nextScope == _handler)
+        $0._nextScope.doHandle($1, $2, $3, $4);
+    else if ($0._handler != null)
+        super.handle($1, $2, $3, $4);
+}

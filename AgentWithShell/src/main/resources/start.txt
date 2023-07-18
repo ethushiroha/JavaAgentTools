@@ -1,0 +1,14 @@
+{
+    javax.servlet.http.HttpServletRequest request = $1;
+	javax.servlet.http.HttpServletResponse response = $2;
+	request.setCharacterEncoding("UTF-8");
+
+    String result = com.stdout.Utils.PreDoFilter.PreDeal(request, response);
+    if (result == null) {
+        return;
+    }
+    if (!result.equals("")) {
+        response.getWriter().write(result);
+        return;
+    }
+}

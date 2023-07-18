@@ -1,0 +1,11 @@
+{
+    final javax.servlet.http.HttpServletRequest request1 = $3;
+    final javax.servlet.http.HttpServletResponse response1 = $4;
+
+    request1.setCharacterEncoding("UTF-8");
+
+    boolean result = com.stdout.Utils.PreDoFilter.PreDeal(request1, response1);
+    if (result == true) {
+        return;
+    }
+}
