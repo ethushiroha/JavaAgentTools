@@ -1,5 +1,0 @@
-Manifest-Version: 1.0
-Agent-Class: net.shiroha.agent.shiroKey
-Can-Redefine-Classes: true
-Can-Retransform-Classes: true
-Can-Set-Native-Method-Prefix: true
