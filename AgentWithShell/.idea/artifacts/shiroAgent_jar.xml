@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="shiroAgent:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/shiroAgent_jar</output-path>
+    <root id="archive" name="shiroAgent.jar">
+      <element id="module-output" name="shiroAgent" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/io/earcam/wrapped/com.sun.tools.attach/1.8.0_jdk8u172-b11/com.sun.tools.attach-1.8.0_jdk8u172-b11.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

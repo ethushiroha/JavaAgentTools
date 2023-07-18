@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>shiroAgent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.earcam.wrapped</groupId>
+            <artifactId>com.sun.tools.attach</artifactId>
+            <version>1.8.0_jdk8u172-b11</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.javassist/javassist -->
+        <dependency>
+            <groupId>com.sun</groupId>
+            <artifactId>tools</artifactId>
+            <version>1.8.0</version>
+            <scope>system</scope>
+            <systemPath>/Library/Java/JavaVirtualMachines/jdk1.8.0_351.jdk/Contents/Home/lib/tools.jar</systemPath>
+        </dependency>
+
+    </dependencies>
+
+
+
+</project>
