@@ -277,7 +277,7 @@ public class MyLVM extends HotSpotVirtualMachine {
 
     // Return the socket file for the given process.
     private String findSocketFile(int pid) {
-        String path = tmpdir + ".java_pid" + pid;
+        String path = MyLVM.tmpdir + ".java_pid" + pid;
         File f = new File(path);
 
         if (!f.exists()) {

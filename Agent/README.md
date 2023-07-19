@@ -1,16 +1,15 @@
 # Agent
 
-只是一个普通的Java agent，使用方法为 `java -jar Agent.jar [pid] [jarFile]`
+只是一个普通的Java agent，使用方法为 `java -jar Agent.jar pid=<your target pid> file=<your transformer jar file> [path=<target java_pid file>]`
+
+参数说明：
+- pid： 目标进程 pid， 必需
+- file： 想要注入的 transformer 的 jar 位置，必需
+- path： 目标 .java_pid 文件的目录， 默认为 /tmp/， 非必需，仅当目标 .java_pid 文件位置发生变动时需要（例如以 Systemctl 方式启动进程）
 
 当以 systemctl start 方式启动 jar ，且目标开启了 `PrivateTemp` 的时候，其 **.java_pid{pid}** 文件不在 `/tmp` 目录下，而是在 `/tmp/system-xxx-yyy.service-zzz/tmp` 下，导致 agent 无法找到 socks 通信，也就无法 attach 到目标上。
 基于此，将 `sun.tool.attach.LinuxVirtualMachine` 重写为 MyLVM 类，需要利用时：
-1. 将 sun.tools.attach.MyLVM 中的 `public static String tmpdir = "/tmp/";` 更改为目标 `.java_pid{pid}` 所在的=目录
-2. 修改 `AgentMain.java` ， 使用 `UseMyLVM(id, jarName)` 函数，注释掉另一个
-```java
-        UseMyLVM(id, jarName);
-//        UseNativeVM(id, jarName);
-```
-3. 编译，注入
+1. 使用时传入参数 path="xxx"
 
 ## 参考文章
 attach 相关原理可以看：

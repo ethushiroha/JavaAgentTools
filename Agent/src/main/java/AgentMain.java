@@ -7,19 +7,51 @@ import java.util.List;
 
 public class AgentMain {
     public static void main(String[] args) throws Exception {
-        String id = args[0];
-        String jarName = args[1];
+        String id = "";
+        String jarName = "";
+        String path = "/tmp/";
+
+        for (String arg : args) {
+            String[] tmp = arg.split("=");
+            String key = tmp[0], value = tmp[1];
+            switch (key) {
+                case "pid":
+                    id = value;
+                    break;
+                case "file":
+                    jarName = value;
+                    break;
+                case "path":
+                    path = value;
+                    break;
+            }
+        }
+
+        if (id.length() == 0) {
+            System.out.println("pid is required");
+            return;
+        }
+
+        if (jarName.length() == 0) {
+            System.out.println("jar file is required");
+            return;
+        }
 
         System.out.println("id ==> " + id);
         System.out.println("name ==> " + jarName);
+        System.out.println("path ==> " + path);
 
-//        UseMyLVM(id, jarName);
-        UseNativeVM(id, jarName);
+        if (path.equals("/tmp/")) {
+            UseNativeVM(id, jarName);
+        } else {
+            UseMyLVM(id, jarName, path);
+        }
     }
 
-    public static void UseMyLVM(String id, String jarName) throws Exception {
+    public static void UseMyLVM(String id, String jarName, String path) throws Exception {
         List<AttachProvider> providers = AttachProvider.providers();
-        for (AttachProvider provider: providers) {
+        MyLVM.tmpdir = path;
+        for (AttachProvider provider : providers) {
             try {
                 System.out.println(provider.name());
                 VirtualMachine virtualMachine = MyLVM.NewMyLVM(provider, id);
@@ -28,7 +60,7 @@ public class AgentMain {
                 virtualMachine.detach();
 
                 System.out.println("ends");
-                return ;
+                return;
             } catch (AttachNotSupportedException x) {
                 x.printStackTrace();
             }
