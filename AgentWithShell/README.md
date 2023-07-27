@@ -11,3 +11,18 @@
 Systemctl 方式启动的目标，[利用方法同 Agent](../Agent/README.md)
 SpringMemShell 的功能，[参见](../springMemShell/README.md)
 
+
+
+欢迎各位师傅提出建议，提出需要添加的功能，我尽量做（在做了在做了
+
+
+
+## 20230727 update
+
+添加了 Suo5 的代理，路由在 `Config.DefaultConfig.ProxyConfig.Suo5Proxy` 
+
+默认为 `/VTNWdk5Rbz0K` 
+
+![image-20230727165000623](https://s2.loli.net/2023/07/27/QmYDSqpFuEGJMrx.png)
+
+实现在 `Models.Suo5` 里面
