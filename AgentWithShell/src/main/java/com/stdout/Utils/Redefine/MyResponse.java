@@ -19,8 +19,8 @@ public class MyResponse {
         return response.getClass().getMethod("getOutputStream", null).invoke(response, new Object[] {});
     }
 
-    public static void setHeader(Object response, String arg1, String arg2) throws Exception {
-        response.getClass().getMethod("setHeader", String.class, String.class).invoke(response, arg1, arg2);
+    public static void setHeader(Object response, String key, String value) throws Exception {
+        response.getClass().getMethod("setHeader", String.class, String.class).invoke(response, key, value);
     }
 
     public static void resetBuffer(Object response) throws Exception {
@@ -29,5 +29,13 @@ public class MyResponse {
 
     public static void setStatus(Object response, int code) throws Exception {
         response.getClass().getMethod("setStatus", int.class).invoke(response, code);
+    }
+
+    public static void setBufferSize(Object response, int size) throws Exception {
+        response.getClass().getMethod("setBufferSize", int.class).invoke(response, size);
+    }
+
+    public static void flushBuffer(Object response) throws Exception {
+        response.getClass().getMethod("flushBuffer", null).invoke(response, new Object[] {});
     }
 }

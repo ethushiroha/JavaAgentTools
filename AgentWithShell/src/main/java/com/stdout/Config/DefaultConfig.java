@@ -19,4 +19,9 @@ public class DefaultConfig {
         public static final String StartTransformer = "start.txt";
         public static final String EndTransformer = "ends.txt";
     }
+
+    public static class ProxyConfig {
+        public static final String NeoProxy = "/eGluZ3hpbmcK";
+        public static final String Suo5Proxy = "/VTNWdk5Rbz0K";
+    }
 }

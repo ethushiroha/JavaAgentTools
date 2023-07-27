@@ -25,8 +25,17 @@
             <artifactId>tools</artifactId>
             <version>1.8.0</version>
             <scope>system</scope>
-            <systemPath>/Library/Java/JavaVirtualMachines/jdk1.8.0_351.jdk/Contents/Home/lib/tools.jar</systemPath>
+            <systemPath>/Users/shiroha/Documents/08_java/zulu8.70.0.23-ca-jdk8.0.372-macosx_aarch64/lib/tools.jar</systemPath>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+<!--            <scope>provided</scope>-->
+        </dependency>
+
 
     </dependencies>
 

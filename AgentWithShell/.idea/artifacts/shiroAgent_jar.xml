@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="shiroAgent:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/shiroAgent_jar</output-path>
+    <root id="archive" name="shiroAgent.jar">
+      <element id="module-output" name="shiroAgent" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../08_java/zulu8.70.0.23-ca-jdk8.0.372-macosx_aarch64/lib/tools.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

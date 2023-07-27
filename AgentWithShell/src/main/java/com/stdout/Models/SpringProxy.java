@@ -13,7 +13,7 @@ import static com.stdout.Utils.B64.b64de;
 import static com.stdout.Utils.B64.b64en;
 
 public class SpringProxy {
-    // usage for Neo-reGeorg
+    // for Neo-reGeorg
     public static void doProxy(Object request, Object response) throws Exception {
         MyResponse.resetBuffer(response);
         MyResponse.setStatus(response, 200);

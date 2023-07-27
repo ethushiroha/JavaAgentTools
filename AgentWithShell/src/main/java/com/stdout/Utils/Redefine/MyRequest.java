@@ -1,6 +1,7 @@
 package com.stdout.Utils.Redefine;
 
 import java.lang.reflect.Method;
+import java.util.Enumeration;
 
 public class MyRequest {
     public static String getParameter(Object request, String name) throws Exception{
@@ -42,4 +43,21 @@ public class MyRequest {
 //        return t.getRequestURI();
     }
 
+    public static int getLocalPort(Object request) throws Exception {
+        Method m = request.getClass().getMethod("getLocalPort", null);
+        m.setAccessible(true);
+        return (int) m.invoke(request, new Object[] {});
+    }
+
+    public static String getMethod(Object request) throws Exception {
+        Method m = request.getClass().getMethod("getMethod", null);
+        m.setAccessible(true);
+        return (String) m.invoke(request, new Object[] {});
+    }
+
+    public static Enumeration getHeaderNames(Object request) throws Exception {
+        Method m = request.getClass().getMethod("getHeaderNames", null);
+        m.setAccessible(true);
+        return (Enumeration) m.invoke(request, new Object[] {});
+    }
 }
